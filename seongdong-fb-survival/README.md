@@ -61,5 +61,4 @@ python code/review_merge.py cohort_part0_reviews.csv cohort_part0_restaurants.cs
 ```
 
 ## 개인정보
-리뷰 원문 파일에는 작성자 닉네임이 포함되어 있어 저장소에 올리지 않았습니다.
 `data/`에는 점포 단위 요약 변수만 포함됩니다.
