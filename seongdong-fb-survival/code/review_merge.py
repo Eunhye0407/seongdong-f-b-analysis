@@ -1,6 +1,8 @@
 """
 네이버 리뷰 -> 리뷰 요약 3열 -> final_restaurant_level_dataset.csv 결합
 
+출력 restaurants_with_reviews_raw.csv  -> data/interim/ 에 두고 code/build_features.py 로 최종 분석 데이터를 만든다.
+
   review_volume        : log(1 + 방문자 리뷰 총수)                 얼마나 많이 찾나 (수요)
   review_segment       : 리뷰 태그의 주된 동행·목적 (연인/친구/가족/업무/혼자)  누가 오나 (손님층)
   review_revisit_share : 'N번째 방문'이 2 이상인 리뷰 비율              단골이 있나 (충성도)
@@ -166,7 +168,7 @@ def main(review_path, place_path, ds_path):
     out = ds.merge(m[mcols], on="restaurant_id", how="left") \
             .merge(feats, on="place_id", how="left")
     out["has_review"] = out["place_id"].notna().astype(int)
-    out.to_csv("final_dataset_with_reviews.csv", index=False, encoding="utf-8-sig")
+    out.to_csv("restaurants_with_reviews_raw.csv", index=False, encoding="utf-8-sig")
 
     h = out[out.has_review == 1]
     print(f"네이버 매장 {len(pi):,} | 매칭 {len(h):,}/{len(out):,} ({len(h) / len(out):.1%})")

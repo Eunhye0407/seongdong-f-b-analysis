@@ -1,3 +1,15 @@
-pandas
-numpy
-playwright
+# 분석 (build_features.py, cox_analysis.py)
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+statsmodels>=0.14
+pyproj>=3.5
+python-igraph>=0.10
+matplotlib>=3.7
+
+# 전처리 노트북
+geopandas>=0.14
+requests>=2.31
+
+# 네이버 리뷰 수집
+playwright>=1.40
